@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1=title
+  form(method='POST' action='')
+    div
+    label(for='post_title') Post Title:
+    input(type='text' id='post_title' name='post_title' placeholder='Type the title of the post' value=(post.post_title))
+    div
+    label(for='post_author') Post Author:
+    input(type='text' id='post_author' name='post_author' placeholder='Type the author\'s name' value=(post.post_author))
+    div
+    label(for='post_body') What would you like to change?:
+    textarea(id='post_body' name='post_body' placeholder='Type your text here') !{post.post_body}
+    div
+    button(type='submit') Save new version
+  div
+  a(href='/posts') #[button To my posts] 
+  if errors
+    div
+      ul
+        each error in errors
+          li!= error.msg
+  if success
+    div
+      p Excellent! Your post was edited and saved. Go to the #[a(href='/posts/') all posts] page to see your post.
