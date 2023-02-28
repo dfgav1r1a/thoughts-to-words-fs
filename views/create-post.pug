@@ -1,30 +1,33 @@
 extends layout
 
 block content
-  h1 #{title}
+
+  h1.page-title Thoughts to Words 
+  p Welcome and thank you for using Thoughts to Words where you can express yourself freely without restraint. To start, make use of the form below to create your first post and once you are ready, save it. You will be able to see, edit and delete your post in the All Posts page. Have fun!
+  h2.page-title #{title}
 
   form(method='POST' action='')
     div
-    label(for='post_title') Post Title
-    input(type='text' id='post_title' name='post_title' placeholder='Type the title of the post' value=(undefined===post ? '' : post.post_title))
+      label(for='post_title') Post Title:
+      input(type='text' id='post_title' name='post_title' placeholder='Type the title of the post' value=(undefined===post ? '' : post.post_title))
     div
-    label(for='post_author') Post Author 
-    input(type='text' id='post_author' name='post_author' placeholder='Type the author\'s name' value=(undefined===post ? '' : post.post_author))
+      label(for='post_author') Post Author:
+      input(type='text' id='post_author' name='post_author' placeholder='Type the author\'s name' value=(undefined===post ? '' : post.post_author))
     div
-    label(for='post_body') What do you want to say?
-    textarea(id='post_body' name='post_body' placeholder='Type your text here' value=(undefined===post ? '' : post.post_body))
-    div
-    button(type='submit') Save Post
+      label(for='post_body') What would you like to say?
+      textarea(id='post_body' name='post_body' placeholder='Type your text here' value=(undefined===post ? '' : post.post_body))
+    div(style="text-align: center;")
+      button(type='submit') Save Post
     if errors
-      div
+      div.error-msg
         ul
           each err in errors
             li!= err.msg
     if postExist
-      div
+      div.error-msg
         p This blog post already exist in the app's records, please create a different post.  
     if success 
-      div
+      div.edit-success-msg
         p Awesome! entry saved, if you want to edit or delete the post go to the #[a(href='/posts') all posts] page.
          
         

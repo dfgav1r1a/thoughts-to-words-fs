@@ -2,19 +2,22 @@ extends layout
 
 block content
 
+  h1.page-title Delete Your Post
+
   if !isSuccessful
-    h1 Delete Your Post
     p Are you sure you want to delete the following entry?
+
     div
-      h2=post_title
-      h5=post_author
-      p !{post_body}
+      h2.page-title=post_title
+      h5.page-title=post_author
+      p(style="white-space: pre-wrap;") !{post_body}
 
     div
       form(method='POST' action='')
         input(id='postId' type='hidden' name='postId' value=post_id required='true')
-        button.btn.btn-primary(type='submit') Yes
-        a(href='/posts') #[button.btn.btn-primary(type='button') No] 
+        div.edit-del-btn-container
+          button(type='submit') Yes
+          a(href='/posts' style="display: contents") #[button(type='button') No] 
   else
-    div
+    div.del-success-msg
       p Done! Your post was deleted from the app. If you would like to create a new post #[a(href='/posts/create') go here], or #[a(href='/posts') go to all posts page] to check more posts. 
