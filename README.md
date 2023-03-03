@@ -11,10 +11,10 @@
 
 This is a full stack application developed using the following frameworks and databases:
 
-NodeJS
-ExpressJS
-Bootstrap (for responsiveness)
-MongoDB
+- NodeJS
+- ExpressJS
+- Bootstrap (for responsiveness)
+- MongoDB
 
 ### App Architecture and tooling
 
