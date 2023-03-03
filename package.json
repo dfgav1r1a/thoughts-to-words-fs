@@ -1,7 +1,9 @@
 {
   "name": "thoughts-to-words",
   "version": "1.0.0",
-  "engines": "19.x",
+  "engines": {
+    "node": "19.x"
+  },
   "description": "Application developed with express, nodejs and MongoDB",
   "private": true,
   "author": "Daniel Gaviria",
