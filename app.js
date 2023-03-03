@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -5,20 +8,21 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts.js');
+const compression = require('compression');
+const helmet      = require('helmet');
 
 const app = express();
 
 //setting the connection between mongoose and MongoDB
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
-const mongoDB = 'mongodb://localhost:27017/blogPosts';
+const mongoDB = process.env.MONGODB_URI || 'mongodb://localhost:27017/blogPosts';
 
 main().catch(err => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
-  console.log(`Connected to MongoDB container running in ${mongoDB}`)
+  console.log("Connected to MongoDB")
 }
 
 // view engine setup
@@ -26,13 +30,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
+app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(compression());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 
 // catch 404 and forward to error handler

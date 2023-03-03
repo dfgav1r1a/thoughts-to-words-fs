@@ -1,4 +1,3 @@
-const async = require('async');
 const {body, validationResult} = require('express-validator');
 const blogPost = require('../data-models/blogData.js');
 
@@ -7,7 +6,6 @@ exports.posts_list = async (req, res, next) => {
   await blogPost.find({},"post_title post_author post_body")
     .exec((err, posts) => {
       err ? next(err) : 
-        console.log(posts);
         res.render('index', {
           title: 'Your Thoughts',
           error: err,
@@ -32,7 +30,7 @@ exports.posts_create_post = [
   body('post_author')
   .trim()
   .isLength({min: 4, max: 30})
-  .withMessage('Please enter your fist and last names').escape(),
+  .withMessage('Please enter your first and last names').escape(),
   body('post_body')
   .trim()
   .notEmpty()
@@ -56,7 +54,7 @@ exports.posts_create_post = [
       //return to avoid writing to the db
       return;
     }
-    //if everything is ok, query to database to check for exact duplicates
+    //if everything is ok, query to database to check for a duplicate
     await blogPost.findOne({post_title: req.body.post_title}).exec((error, postDoc) => {
       let post_exist = false;
       let success = false;
@@ -98,7 +96,6 @@ exports.posts_delete_get = async (req, res, next) => {
       post_body: query.post_body,
       post_id: query._id,
     })
-
   });
 };
 
@@ -110,7 +107,6 @@ exports.posts_delete_post = async (req, res, next) => {
     }
     //if nothing is wrong, send success message
     isSuccessful = true
-    console.log(query.post_author);
     res.render('delete-post', {
       isSuccessful,
     })
@@ -118,15 +114,11 @@ exports.posts_delete_post = async (req, res, next) => {
 };
 
 //middleware for GET and POST for edit post
-exports.posts_edit_get= (req, res, next) => {
-  async.series({
-    queryPost(callback) {
-      blogPost.findById(req.params.id).exec(callback);
-    },
-  }, (error, queryResults) => {
+exports.posts_edit_get= async (req, res, next) => {
+  await blogPost.findById(req.params.id).exec((error, queryResults) => {
     if (error) return next(error);
     //handling error if query is unsuccessful
-    if (queryResults.queryPost === null) {
+    if (queryResults === null) {
       const err = new Error('Sorry, something went wrong, please try again');
       err.status = 404;
       return next(err);
@@ -134,7 +126,7 @@ exports.posts_edit_get= (req, res, next) => {
     //rendering the document
     res.render('edit-post', {
       title: 'Edit your post',
-      post: queryResults.queryPost,
+      post: queryResults,
     });
   });
 };

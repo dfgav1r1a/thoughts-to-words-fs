@@ -3,3 +3,12 @@ node_modules
 
 #vim files
 *.swp
+
+#gitignore
+.gitignore
+
+#db test
+dbtest.js
+
+#env file
+.env
