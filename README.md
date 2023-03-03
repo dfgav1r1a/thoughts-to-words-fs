@@ -1,13 +1,13 @@
 # Thoughts to words (full-stack app)
 
-> Daniel Gaviria:
+> ##### Daniel Gaviria:
 > - [LinkedIn](https://www.linkedin.com/in/daniel-gaviria-dev/)
 >
-> - [Bio](https://www.danielgaviria.net/artist/daniel-gaviria/)i
+> - [Bio](https://www.danielgaviria.net/artist/daniel-gaviria/)
 >
 > - [YouTube](https://www.youtube.com/@gavirialive)
 
-This solution could be accessed/used here: https://thoughts-to-words.herokuapp.com 
+##### This solution can be accessed/used here: https://thoughts-to-words.herokuapp.com 
 
 This is a full stack application developed using the following frameworks and databases:
 
