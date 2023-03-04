@@ -24,7 +24,10 @@ a {
 
 .nav-block-one {
   list-style: none;
-  padding-inline-start: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: auto;
 }
 
 .nav-block-one li {
@@ -45,8 +48,7 @@ a {
 
 .nav-info-section {
   list-style: none;
-  padding-inline-start: 0;
-  letter-spacing: 0.5px;
+  padding: 0;
   opacity: 1;
 }
 

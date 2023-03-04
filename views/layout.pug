@@ -14,24 +14,25 @@ html
       div(class='row')
         div(class='col-sm-2 sidebar-nav-container' style="opacity: 0.7;")
           block sidebar
-            ul(class='nav-block-one')
-              li
-                a(href='/posts/create') Home
-              li
-                a(href='/posts') All posts 
-              li 
-                a(href='#') Sign Up
-              li 
-                a(href='#') Login 
-            div.nav-separator 
-              hr
-            ul.nav-info-section
-              li About Daniel Gaviria: 
-                a(href='https://www.linkedin.com/in/daniel-gaviria-dev/' target='_blank')
-                  i(class="bi bi-linkedin")
-              li App repository: 
-                a(href='https://github.com/dfgav1r1a/thoughts-to-words-fs' target='_blank')
-                  i(class="bi bi-github")
+            nav 
+              ul(class='nav-block-one')
+                li
+                  a(href='/posts/create') Home
+                li
+                  a(href='/posts') All posts 
+                li 
+                  a(href='#') Sign Up
+                li 
+                  a(href='#') Login 
+              div.nav-separator 
+                hr
+              ul.nav-info-section
+                li About Daniel Gaviria: 
+                  a(href='https://www.linkedin.com/in/daniel-gaviria-dev/' target='_blank')
+                    i(class="bi bi-linkedin")
+                li App repository: 
+                  a(href='https://github.com/dfgav1r1a/thoughts-to-words-fs' target='_blank')
+                    i(class="bi bi-github")
 
         div(class='col-sm-10 app-body')
           block content 
