@@ -32,7 +32,7 @@ As for the UI, I decided on an SPA, somewhat mimiquing a Wordpress dashboard UI.
 
 I intended this to be a non scrollable application but that turned out to be a difficult task given the content I intended to display on each page. If I had more time to develop this solution, I would implement pagination in the All posts page instead of relying on the appeareance scroll bar when the content overflows the container.
 
-This application is responsive but it is not perfect, further fixes need to be implemented for some of the elements to be completely responsive, specially the horizontal navigation bar. I am still working on a solution for some of the issues.
+This application is responsive but it is not perfect, further fixes need to be implemented for some of the elements to be completely responsive, specially the vertical navigation bar. I am still working on a solution for some of the issues.
 
 ## if (!deadline) { ... }
 
