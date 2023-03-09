@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1.page-title=title
+  form(method='POST' action='')
+    div.userForm
+      label(for='name') Name:
+      input(type='text' id='name' name='name' placeholder='Enter you name')
+      label(for='email') Email:
+      input(type='email' id='email' name='email' placeholder='Enter your email')
+      label(for='password') Password:
+      input(type='password' id='password' name='password' placeholder='Password') 
+    div.edit-del-btn-container
+      button(type='submit') Create account 
+      a(href='/posts' style="display: contents") #[button(type="button") Create Post] 
+  if errors
+    div.error-msg
+      ul
+        each error in errors
+          li!= error.msg
+  if success
+    div.edit-success-msg
+      p Thank you for creating an account, #[a(href='/posts/create') click here] to create your first thought.

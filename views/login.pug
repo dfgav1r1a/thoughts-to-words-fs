@@ -1,0 +1,22 @@
+extend layout 
+
+block content 
+    h1.page-title=title 
+    form(method='POST' action='')
+        div.userForm
+            label(for='email') Email:
+            input(type="email" id='email' name='email' placeholder='Enter your email')  
+            label(for='password') Password:
+            input(type='password' id='password' name='password' placeholder='Enter your password')
+        div.edit-del-btn-container 
+            button(type='submit') Login
+            a(href='/posts' style='display: contents') #[button(type='button') Create Post]
+
+        if errors 
+            div.error-msg
+                ul 
+                    each error in errors 
+                        li!= error.msg
+        if success 
+            div.edit-success-msg
+                p Welcome back, #[a(href='/posts') click here] to see your posts!
