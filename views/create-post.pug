@@ -3,7 +3,7 @@ extends layout
 block content
 
   h1.page-title Thoughts to Words 
-  p Welcome and thank you for using Thoughts to Words where you can express yourself freely without restraint. To start, make use of the form below to create your first post and once you are ready, save it. You will be able to see, edit and delete your post in the All Posts page. Have fun!
+  p Welcome and thank you for using Thoughts to Words where you can express yourself freely without restraint. To start, make use of the form below to write your first thought and once you are ready, save it. You will be able to see, edit and delete your thought in the My Thoughts page. Have fun!
   h2.page-title #{title}
 
   form(method='POST' action='')
@@ -25,10 +25,10 @@ block content
             li!= err.msg
     if postExist
       div.error-msg
-        p This blog post already exist in the app's records, please create a different post.  
+        p This thought already exist in the app's records, please create a new one.  
     if success 
       div.edit-success-msg
-        p Awesome! entry saved, if you want to edit or delete the post go to the #[a(href='/posts') all posts] page.
+        p Awesome! entry saved, if you want to edit or delete your thought, go to the #[a(href='/posts') My Thoughts] page.
          
         
     

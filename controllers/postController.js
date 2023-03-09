@@ -125,7 +125,7 @@ exports.posts_edit_get= async (req, res, next) => {
     }
     //rendering the document
     res.render('edit-post', {
-      title: 'Edit your post',
+      title: 'Edit your thought',
       post: queryResults,
     });
   });
@@ -158,7 +158,7 @@ exports.posts_edit_post = [
     //if there are errors the form will be rendered again
     if (!errors.isEmpty()) {
       res.render('edit-post', {
-        title: 'Edit your post',
+        title: 'Edit your thought',
         post,
         errors: errors.array(),
       });
@@ -173,7 +173,7 @@ exports.posts_edit_post = [
       } else {
         success = true;
         res.render('edit-post', {
-          title: 'Edit your Post',
+          title: 'Edit your thought',
           post,
           success: success,
         });

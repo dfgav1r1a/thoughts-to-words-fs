@@ -2,7 +2,7 @@ extends layout
 
 block content
 
-  h1.page-title Delete Your Post
+  h1.page-title Delete Your thought 
 
   if !isSuccessful
     p Are you sure you want to delete the following entry?
@@ -20,4 +20,4 @@ block content
           a(href='/posts' style="display: contents") #[button(type='button') No] 
   else
     div.del-success-msg
-      p Done! Your post was deleted from the app. If you would like to create a new post #[a(href='/posts/create') go here], or #[a(href='/posts') go to all posts page] to check more posts. 
+      p Done! Your thought was deleted from the app. If you would like to create a new thought #[a(href='/posts/create') go here], or #[a(href='/posts') go to My Thoughts page]. 
